@@ -1,0 +1,16 @@
+---
+- hosts: devhosts
+  vars:
+  remote_user: vagrant
+
+  tasks:
+  - name: Install Oh-My-Zsh
+    shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+  roles:
+    - role: rvm_io.rvm1-ruby
+      rvm1_install_flags: '--auto-dotfiles --user-install'
+      rvm1_install_path: "/home/{{ ansible_ssh_user }}/.rvm"
+      rvm1_rubies:
+        - 'ruby-2.3.0'
+        - 'jruby-9.0.5.0'

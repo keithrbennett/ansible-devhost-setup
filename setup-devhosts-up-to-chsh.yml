@@ -1,0 +1,13 @@
+---
+- hosts: devhosts
+  vars:
+  remote_user: vagrant
+  tasks:
+  - name: Install zsh, git
+    apt: name=zsh,git  state=latest  force=yes
+    become: true
+  - name: Create dummy .zshrc file
+    file: name=~/.zshrc  state=touch
+  - name: Change user shell to zsh
+    user: name=vagrant shell=/bin/zsh
+    become: true
