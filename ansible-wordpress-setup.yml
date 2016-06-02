@@ -1,0 +1,10 @@
+---
+- hosts: wordpress-servers
+  vars:
+  remote_user: vagrant
+  become: true
+  roles:
+    - server
+    - php
+    - mysql
+    - wordpress

@@ -1,0 +1,11 @@
+---
+- hosts: devhosts
+  vars:
+  remote_user: deploy
+
+  tasks:
+  - name: Copy backup SQL script to dev host
+    file: state=file  src=~/work/mysql-wordpress/mysql-create-scripts/
+    file: state=directory  path=~/work/mysql-wordpress
+
+    shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

@@ -1,0 +1,11 @@
+---
+- hosts: devhosts
+  vars:
+  remote_user: root
+  tasks:
+  - name: Create 'deploy' user
+    user: name=deploy  state=present  ssh_key_file=~/.ssh/id_rsa.pub
+    become: true
+  - name: Copy public key to 'deploy' user's ~.ssh/authorized_keys
+    authorized_key: user=deploy  key="{{ lookup('file', '/Users/kbennett/.ssh/id_rsa.pub') }}"
+    become: true

@@ -1,7 +1,7 @@
 ---
 - hosts: devhosts
   vars:
-  remote_user: vagrant
+  remote_user: deploy
 
   tasks:
   - name: Install Oh-My-Zsh

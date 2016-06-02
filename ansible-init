@@ -1,0 +1,5 @@
+ansible-galaxy install rvm_io.rvm1-ruby
+ansible-galaxy init server
+ansible-galaxy init php
+ansible-galaxy init mysql
+ansible-galaxy init wordpress
