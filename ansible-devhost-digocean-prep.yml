@@ -3,6 +3,8 @@
   vars:
   remote_user: root
   tasks:
+  - name: Set time zone to Philippines time
+    shell: timedatectl set-timezone Asia/Manila
   - name: Create 'deploy' user
     user: name=deploy  state=present  ssh_key_file=~/.ssh/id_rsa.pub
   - name: Copy public key to 'deploy' user's ~.ssh/authorized_keys
